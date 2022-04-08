@@ -140,6 +140,11 @@ public class UpdateUser extends JFrame implements ActionListener {
 			eventos.update(model, userO, user, nomb, ape, tel, email, contra);
 			JOptionPane.showMessageDialog(null, "Registro actualizado");
 			this.dispose();
+			
+			model = new DefaultTableModel();
+			model.setColumnIdentifiers(Tabla.columnas);
+			Tabla.table.setModel(model);
+			model = eventos.getAll(model);
 			}
 		
 		if (btn1 == e.getSource()) {

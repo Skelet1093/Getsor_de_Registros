@@ -10,10 +10,10 @@ public class Tabla extends JFrame implements ActionListener {
 	 */
 	private static final long serialVersionUID = -5760001288256613295L;
 	private JTextField txtUsuario;
-	private JTable table;
+	static JTable table;
 	private JScrollPane scrollPane;
 	static DefaultTableModel model;
-	Object[] columnas = {"Usuario", "Nombre", "Apellido", "Num. Telefono", "Correo", "Contraseña"};
+	static Object[] columnas = {"Usuario", "Nombre", "Apellido", "Num. Telefono", "Correo", "Contraseña"};
 	private JLabel lb2, lb3, lb4, lb5, lb6;
 	private JTextField txtNombre, txtApellido, txtNumTel, txtCorreo, txtContra;
 	private JButton btn1, btn2, btn3, btn4, btn5;
