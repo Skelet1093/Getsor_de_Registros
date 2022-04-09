@@ -17,7 +17,7 @@ public class eventos {
 		if (numC > 25 || numC < 7) {
 			return false;
 		}else {
-		return true;
+			return true;
 		}
 	}
 	
@@ -26,7 +26,7 @@ public class eventos {
 		if (numC > 20 || numC < 3) {
 			return false;
 		}else {
-		return true;
+			return true;
 		}
 	}
 	
@@ -35,7 +35,7 @@ public class eventos {
 		if (numC > 13 || numC < 10) {
 			return false;
 		}else {
-		return true;
+			return true;
 		}
 	}
 	
@@ -44,7 +44,7 @@ public class eventos {
 		if (numC > 40 || numC < 10) {
 			return false;
 		}else {
-		return true;
+			return true;
 		}
 	}
 	
@@ -53,7 +53,7 @@ public class eventos {
 		if (numC > 15 || numC < 7) {
 			return false;
 		}else {
-		return true;
+			return true;
 		}
 	}
 	
@@ -108,15 +108,15 @@ public class eventos {
 		
 		if (!email.contains("@")) {
 			JOptionPane.showMessageDialog(null, "Introduzca una direccion de correo valida.");
-			verif = false;
+			val = false;
 		}
 		if (user.isEmpty() || nomb.isEmpty() || ape.isEmpty() || tel.isEmpty() || email.isEmpty() || contra.isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Todos los campos deben estar llenos.");
-			verif = false;
+			val = false;
 		}
 		if (!contra.equals(cContra)) {
 			JOptionPane.showMessageDialog(null, "La contraseña no coincide. Asegurece que ambos campos contengan la misma contraseña.");
-			verif = false;
+			val = false;
 		}
 		
 		if (val == false) {
