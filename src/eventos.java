@@ -118,10 +118,11 @@ public class eventos {
 			JOptionPane.showMessageDialog(null, "La contraseña no coincide. Asegurece que ambos campos contengan la misma contraseña.");
 			verif = false;
 		}
+		
 		if (val == false) {
 			verif = false;
 		}
-		else {
+		if (val == true){
 			try {
 				PreparedStatement st = cn.prepareStatement("INSERT INTO usuarios (Usuario, Nombre, Apellido, Num_Telefono, Correo_Electronico, Contraseña)"
 						+ " Values (\"" + user + "\", \"" + nomb + "\", \"" + ape + "\", \"" + tel + "\", \"" + email + "\", \"" + contra + "\")");
@@ -151,6 +152,9 @@ public class eventos {
 	        
 	        if (user.equals(v[1]) && contra.equals(v[0])) {
 				verif = true;
+	        }
+	        if (user.equals("") && contra.equals("")) {
+				verif = false;
 	        }
 	        else {
 	        	verif = false;
@@ -214,35 +218,34 @@ public class eventos {
 		boolean v = true;
 		try {
 			PreparedStatement st;
-		if (!user.equals("")) {
-			st = cn.prepareStatement("UPDATE Usuarios SET Usuario = \"" + user + "\" WHERE Usuario = \"" + user0 +"\"");
-			v = MySQL.update(st);
-		} 
+			if(!contra.equals("")) {
+				st = cn.prepareStatement("UPDATE Usuarios SET Contraseña = \"" + contra + "\" WHERE Usuario = \"" + user0 +"\"");
+				v = MySQL.update(st);
+			}
 		
-		if(!contra.equals("")) {
-			st = cn.prepareStatement("UPDATE Usuarios SET Contraseña = \"" + contra + "\" WHERE Usuario = \"" + user0 +"\"");
-			v = MySQL.update(st);
-		}
+			if (!email.equals("")) {
+				st = cn.prepareStatement("UPDATE Usuarios SET Correo_Electronico = \"" + email + "\" WHERE Usuario = \"" + user0 +"\"");
+				v = MySQL.update(st);
+			}
 		
-		if (!email.equals("")) {
-			st = cn.prepareStatement("UPDATE Usuarios SET Correo_Electronico = \"" + email + "\" WHERE Usuario = \"" + user0 +"\"");
-			v = MySQL.update(st);
-		}
+			if (!tel.equals("")) {
+				st = cn.prepareStatement("UPDATE Usuarios SET Num_Telefono = \"" + tel + "\" WHERE Usuario = \"" + user0 +"\"");
+				v = MySQL.update(st);
+			}
 		
-		if (!tel.equals("")) {
-			st = cn.prepareStatement("UPDATE Usuarios SET Num_Telefono = \"" + tel + "\" WHERE Usuario = \"" + user0 +"\"");
-			v = MySQL.update(st);
-		}
+			if (!nomb.equals("")) {
+				st = cn.prepareStatement("UPDATE Usuarios SET Nombre = \"" + nomb + "\" WHERE Usuario = \"" + user0 +"\"");
+				v = MySQL.update(st);
+			}
 		
-		if (!nomb.equals("")) {
-			st = cn.prepareStatement("UPDATE Usuarios SET Nombre = \"" + nomb + "\" WHERE Usuario = \"" + user0 +"\"");
-			v = MySQL.update(st);
-		}
-		
-		if (!ape.equals("")) {
-			st = cn.prepareStatement("UPDATE Usuarios SET Apellido = \"" + ape + "\" WHERE Usuario = \"" + user0 +"\"");
-			v = MySQL.update(st);
-		}
+			if (!ape.equals("")) {
+				st = cn.prepareStatement("UPDATE Usuarios SET Apellido = \"" + ape + "\" WHERE Usuario = \"" + user0 +"\"");
+				v = MySQL.update(st);
+			}
+			if (!user.equals("")) {
+				st = cn.prepareStatement("UPDATE Usuarios SET Usuario = \"" + user + "\" WHERE Usuario = \"" + user0 +"\"");
+				v = MySQL.update(st);
+			} 
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
